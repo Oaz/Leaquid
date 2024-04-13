@@ -1,0 +1,48 @@
+<!-- ReSharper disable once Xaml.StyleClassNotFound -->
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:Leaquid.UserInterface.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Leaquid.UserInterface.Views.WaitForRegistrationView"
+             x:DataType="viewModels:WaitForRegistrationViewModel">
+    <Design.DataContext>
+        <viewModels:DesignWaitForRegistrationViewModel />
+    </Design.DataContext>
+    <UserControl.Styles>
+        <Style Selector="TextBlock">
+            <Setter Property="FontSize" Value="48" />
+            <Setter Property="Margin" Value="20 0" />
+        </Style>
+        <Style Selector="Button">
+            <Setter Property="FontSize" Value="36" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+        </Style>
+        <Style Selector="WrapPanel">
+            <Setter Property="HorizontalAlignment" Value="Center" />
+        </Style>
+    </UserControl.Styles>
+    <Grid ColumnDefinitions="Auto,*" RowDefinitions="*,Auto">
+        <StackPanel Grid.Column="0" Grid.Row="0" Grid.RowSpan="2"
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Center" Spacing="20">
+            <WrapPanel>
+                <TextBlock>Game ID:</TextBlock>
+                <TextBlock Text="{Binding GameId}" />
+            </WrapPanel>
+            <WrapPanel>
+                <TextBlock>Players:</TextBlock>
+                <TextBlock Text="{Binding PlayerCount}" />
+            </WrapPanel>
+            <Button HorizontalAlignment="Center" Command="{Binding Start}">START</Button>
+        </StackPanel>
+        <Viewbox Grid.Column="1" Grid.Row="0">
+            <Image Source="{Binding QrCode}" />
+        </Viewbox>
+        <Button Grid.Column="1" Grid.Row="1" Classes="hyperlink" Margin="10"
+                Command="{Binding OpenUrl}"
+                CommandParameter="{Binding GameUrl}"
+                FontSize="12" Content="Open player" />
+    </Grid>
+</UserControl>

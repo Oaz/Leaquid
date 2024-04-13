@@ -1,0 +1,7 @@
+<Project>
+  <PropertyGroup>
+    <Nullable>enable</Nullable>
+    <AvaloniaVersion>11.0.9</AvaloniaVersion>
+    <DynamicDataVersion>8.3.27</DynamicDataVersion>
+  </PropertyGroup>
+</Project>

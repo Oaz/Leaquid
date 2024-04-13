@@ -1,0 +1,23 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:Leaquid.Multigame.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="300"
+             
+             x:Class="Leaquid.Multigame.Views.EmbedGameView"
+             x:DataType="vm:EmbedGameViewModel">
+    <Design.DataContext>
+        <vm:DesignEmbedGameViewModel />
+    </Design.DataContext>
+    
+    <Border BorderThickness="1" BorderBrush="Black">
+        <StackPanel Orientation="Vertical">
+            <TextBlock HorizontalAlignment="Center" FontSize="48" Text="{Binding NumberOfPlayers}" />
+            <ContentControl 
+                Width="{Binding Width}" 
+                Height="{Binding Height}" 
+                Content="{Binding Game}" />
+        </StackPanel>
+    </Border>
+</UserControl>

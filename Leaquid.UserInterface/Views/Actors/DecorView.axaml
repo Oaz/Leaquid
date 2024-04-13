@@ -1,0 +1,13 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:actors="clr-namespace:Leaquid.UserInterface.ViewModels.Actors"
+             mc:Ignorable="d" d:DesignWidth="106" d:DesignHeight="84"
+             x:Class="Leaquid.UserInterface.Views.Actors.DecorView"
+             x:DataType="actors:DecorViewModel">
+    <Design.DataContext>
+        <actors:DesignDecorViewModel />
+    </Design.DataContext>
+    <Image RenderOptions.BitmapInterpolationMode="None" Source="{Binding Image}" />
+</UserControl>

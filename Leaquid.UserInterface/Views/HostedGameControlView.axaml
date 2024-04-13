@@ -1,0 +1,27 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:Leaquid.UserInterface.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="200" d:DesignHeight="300"
+             x:Class="Leaquid.UserInterface.Views.HostedGameControlView"
+             x:DataType="viewModels:HostedGameControlViewModel">
+    <Design.DataContext>
+        <viewModels:HostedGameControlViewModel />
+    </Design.DataContext>
+
+    <StackPanel HorizontalAlignment="Center" Width="100">
+        <Button
+            IsVisible="{Binding IsRunning}"
+            Command="{Binding Pause}"
+            HorizontalAlignment="Stretch">
+            <TextBlock HorizontalAlignment="Center">PAUSE</TextBlock>
+        </Button>
+        <Button
+            IsVisible="{Binding !IsRunning}"
+            Command="{Binding Play}"
+            HorizontalAlignment="Stretch">
+            <TextBlock HorizontalAlignment="Center">PLAY</TextBlock>
+        </Button>
+    </StackPanel>
+</UserControl>

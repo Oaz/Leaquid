@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="MQTTnet" Version="4.1.4.563" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Leaquid.Core\Leaquid.Core.csproj" />
+        <InternalsVisibleTo Include="Leaquid.Network.Tests" />
+    </ItemGroup>
+
+</Project>

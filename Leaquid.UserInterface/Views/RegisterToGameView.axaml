@@ -1,0 +1,42 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:Leaquid.UserInterface.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Leaquid.UserInterface.Views.RegisterToGameView"
+             x:DataType="viewModels:RegisterToGameViewModel">
+    <Design.DataContext>
+        <viewModels:RegisterToGameViewModel />
+    </Design.DataContext>
+    <UserControl.Styles>
+        <Style Selector="TextBlock">
+            <Setter Property="FontSize" Value="48" />
+            <Setter Property="Margin" Value="20 0" />
+        </Style>
+        <Style Selector="TextBox">
+            <Setter Property="FontSize" Value="48" />
+            <Setter Property="Margin" Value="20 0" />
+        </Style>
+        <Style Selector="Button">
+            <Setter Property="FontSize" Value="36" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+        </Style>
+    </UserControl.Styles>
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel Spacing="20"
+                    IsVisible="{Binding !Entered}">
+            <TextBlock>Enter Game Code</TextBlock>
+            <TextBox TextAlignment="Center" Text="{Binding GameCode}" />
+            <Button IsDefault="True" Command="{Binding Join}">JOIN</Button>
+        </StackPanel>
+        <StackPanel IsVisible="{Binding Entered}">
+            <TextBlock IsVisible="{Binding !Registered}">Waiting for confirmation.</TextBlock>
+            <StackPanel IsVisible="{Binding Registered}">
+                <TextBlock>Registration OK.</TextBlock>
+                <TextBlock>Game will start soon.</TextBlock>
+            </StackPanel>
+        </StackPanel>
+    </StackPanel>
+
+</UserControl>

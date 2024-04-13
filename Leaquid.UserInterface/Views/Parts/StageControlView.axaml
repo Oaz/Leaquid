@@ -1,0 +1,23 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:Leaquid.UserInterface.ViewModels"
+             xmlns:parts="clr-namespace:Leaquid.UserInterface.ViewModels.Parts"
+             mc:Ignorable="d"
+             x:Class="Leaquid.UserInterface.Views.Parts.StageControlView"
+             x:DataType="parts:StageControlViewModel">
+    <Design.DataContext>
+        <parts:DesignStageControlViewModel />
+    </Design.DataContext>
+    <ItemsControl ItemsSource="{Binding ZoomLevels}">
+        <ItemsControl.ItemTemplate>
+            <DataTemplate x:DataType="parts:ZoomLevel">
+                <RadioButton
+                    GroupName="ZoomLevels"
+                    Content="{Binding Name}"
+                    IsChecked="{Binding IsActive}"/>
+            </DataTemplate>
+        </ItemsControl.ItemTemplate>
+    </ItemsControl>
+</UserControl>

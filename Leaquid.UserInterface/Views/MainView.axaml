@@ -1,0 +1,37 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:Leaquid.UserInterface.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="350"
+             x:Class="Leaquid.UserInterface.Views.MainView"
+             x:DataType="viewModels:MainViewModel">
+    <Design.DataContext>
+        <viewModels:MainViewModel />
+    </Design.DataContext>
+    <ContentControl Content="{Binding Game}" />
+    
+    <UserControl.Styles>
+        <Style Selector="TextBlock">
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Background" Value="Transparent"/>
+        </Style>
+        <Style Selector="Button">
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Background" Value="Silver"/>
+        </Style>
+        <Style Selector="RadioButton">
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Background" Value="Transparent"/>
+        </Style>
+        <Style Selector="RepeatButton">
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Background" Value="Silver"/>
+        </Style>
+        <Style Selector="Button.hyperlink">
+            <Setter Property="Foreground" Value="#3483eb"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Margin" Value="2 0"/>
+        </Style>
+    </UserControl.Styles>
+</UserControl>

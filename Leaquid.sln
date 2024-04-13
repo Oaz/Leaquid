@@ -1,0 +1,100 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32811.315
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Leaquid.UserInterface", "Leaquid.UserInterface\Leaquid.UserInterface.csproj", "{EBFA8512-1EA5-4D8C-B4AC-AB5B48A6D568}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Leaquid.Desktop", "Leaquid.Desktop\Leaquid.Desktop.csproj", "{ABC31E74-02FF-46EB-B3B2-4E6AE43B456C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Leaquid.Browser", "Leaquid.Browser\Leaquid.Browser.csproj", "{1C1A049E-235C-4CD0-B6FA-D53AC418F4DA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Leaquid.Android", "Leaquid.Android\Leaquid.Android.csproj", "{7AD1DAC8-7FBE-49D5-8614-7321233DB82E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3DA99C4E-89E3-4049-9C22-0A7EC60D83D8}"
+	ProjectSection(SolutionItems) = preProject
+		Directory.Build.props = Directory.Build.props
+		.github\workflows\publish-to-wasm.yml = .github\workflows\publish-to-wasm.yml
+		.github\workflows\publish-to-android.yml = .github\workflows\publish-to-android.yml
+		scripts\android_build.sh = scripts\android_build.sh
+		.gitignore = .gitignore
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Leaquid.Core.Tests", "Leaquid.Core.Tests\Leaquid.Core.Tests.csproj", "{F9751D47-73E9-44D2-B9BA-DF30DD5E206A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Leaquid.Core", "Leaquid.Core\Leaquid.Core.csproj", "{4AC8BABC-28F1-410F-8DA5-6F2BEB4206FA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Leaquid.UserInterface.Tests", "Leaquid.UserInterface.Tests\Leaquid.UserInterface.Tests.csproj", "{D73B12AE-BDB5-4413-8AA9-5BF0BCE6B25D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Leaquid.Network", "Leaquid.Network\Leaquid.Network.csproj", "{86804AF6-C600-4CA2-AEC0-E74E93DD238B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Leaquid.Simulator", "Leaquid.Simulator\Leaquid.Simulator.csproj", "{8776DBEC-1B44-4773-8DAA-FB1DF85A5793}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Leaquid.Network.Tests", "Leaquid.Network.Tests\Leaquid.Network.Tests.csproj", "{C8B05469-2597-421D-A033-036E0A7BB8F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Leaquid.App", "Leaquid.App\Leaquid.App.csproj", "{23D31AE8-D314-434D-B3DC-9650C4DA8C32}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Leaquid.Multigame", "Leaquid.Multigame\Leaquid.Multigame.csproj", "{08DDF742-D002-4AF6-BAE1-5A28088711A7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EBFA8512-1EA5-4D8C-B4AC-AB5B48A6D568}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBFA8512-1EA5-4D8C-B4AC-AB5B48A6D568}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBFA8512-1EA5-4D8C-B4AC-AB5B48A6D568}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBFA8512-1EA5-4D8C-B4AC-AB5B48A6D568}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABC31E74-02FF-46EB-B3B2-4E6AE43B456C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABC31E74-02FF-46EB-B3B2-4E6AE43B456C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABC31E74-02FF-46EB-B3B2-4E6AE43B456C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABC31E74-02FF-46EB-B3B2-4E6AE43B456C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C1A049E-235C-4CD0-B6FA-D53AC418F4DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C1A049E-235C-4CD0-B6FA-D53AC418F4DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C1A049E-235C-4CD0-B6FA-D53AC418F4DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C1A049E-235C-4CD0-B6FA-D53AC418F4DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7AD1DAC8-7FBE-49D5-8614-7321233DB82E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AD1DAC8-7FBE-49D5-8614-7321233DB82E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AD1DAC8-7FBE-49D5-8614-7321233DB82E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7AD1DAC8-7FBE-49D5-8614-7321233DB82E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9751D47-73E9-44D2-B9BA-DF30DD5E206A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9751D47-73E9-44D2-B9BA-DF30DD5E206A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9751D47-73E9-44D2-B9BA-DF30DD5E206A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9751D47-73E9-44D2-B9BA-DF30DD5E206A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AC8BABC-28F1-410F-8DA5-6F2BEB4206FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AC8BABC-28F1-410F-8DA5-6F2BEB4206FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AC8BABC-28F1-410F-8DA5-6F2BEB4206FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AC8BABC-28F1-410F-8DA5-6F2BEB4206FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D73B12AE-BDB5-4413-8AA9-5BF0BCE6B25D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D73B12AE-BDB5-4413-8AA9-5BF0BCE6B25D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D73B12AE-BDB5-4413-8AA9-5BF0BCE6B25D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D73B12AE-BDB5-4413-8AA9-5BF0BCE6B25D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86804AF6-C600-4CA2-AEC0-E74E93DD238B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86804AF6-C600-4CA2-AEC0-E74E93DD238B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86804AF6-C600-4CA2-AEC0-E74E93DD238B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86804AF6-C600-4CA2-AEC0-E74E93DD238B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8776DBEC-1B44-4773-8DAA-FB1DF85A5793}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8776DBEC-1B44-4773-8DAA-FB1DF85A5793}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8776DBEC-1B44-4773-8DAA-FB1DF85A5793}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8776DBEC-1B44-4773-8DAA-FB1DF85A5793}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8B05469-2597-421D-A033-036E0A7BB8F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8B05469-2597-421D-A033-036E0A7BB8F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8B05469-2597-421D-A033-036E0A7BB8F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8B05469-2597-421D-A033-036E0A7BB8F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23D31AE8-D314-434D-B3DC-9650C4DA8C32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23D31AE8-D314-434D-B3DC-9650C4DA8C32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23D31AE8-D314-434D-B3DC-9650C4DA8C32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23D31AE8-D314-434D-B3DC-9650C4DA8C32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08DDF742-D002-4AF6-BAE1-5A28088711A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08DDF742-D002-4AF6-BAE1-5A28088711A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08DDF742-D002-4AF6-BAE1-5A28088711A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08DDF742-D002-4AF6-BAE1-5A28088711A7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {83CB65B8-011F-4ED7-BCD3-A6CFA935EF7E}
+	EndGlobalSection
+EndGlobal

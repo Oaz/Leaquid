@@ -1,0 +1,21 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:Leaquid.UserInterface.ViewModels"
+             xmlns:setup="clr-namespace:Leaquid.UserInterface.Views.Setup"
+             mc:Ignorable="d" d:DesignWidth="700" d:DesignHeight="300"
+             x:Class="Leaquid.UserInterface.Views.GameView"
+             x:DataType="viewModels:GameViewModel">
+    <Design.DataContext>
+        <viewModels:DesignGameViewModel />
+    </Design.DataContext>
+    <Grid ColumnDefinitions="Auto,*,Auto" RowDefinitions="Auto,Auto,*" Background="White">
+        <setup:FullScreenButtonView />
+        <ContentControl Grid.Column="2" Grid.Row="0" Content="{Binding TopLeft}" />
+        <ContentControl Grid.Column="0" Grid.Row="2" Content="{Binding BottomLeft}" />
+        <ContentControl Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" Content="{Binding Central}" />
+        <ContentControl Grid.Column="2" Grid.Row="1" Content="{Binding TopRight}" />
+        <ContentControl Grid.Column="2" Grid.Row="2" Content="{Binding BottomRight}" />
+    </Grid>
+</UserControl>

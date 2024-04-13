@@ -1,0 +1,21 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:setup="clr-namespace:Leaquid.UserInterface.ViewModels.Setup"
+             xmlns:setup1="clr-namespace:Leaquid.UserInterface.Views.Setup"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Leaquid.UserInterface.Views.Setup.UserChoicesView"
+             x:DataType="setup:UserChoicesViewModel">
+    <Design.DataContext>
+        <setup:DesignUserChoicesViewModel />
+    </Design.DataContext>
+    <Grid ColumnDefinitions="*,*,*" RowDefinitions="100,*,100" Background="White">
+        <StackPanel Grid.Column="2" Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right"  VerticalAlignment="Center">
+            <setup1:FullScreenButtonView />
+        </StackPanel>
+        <ContentControl Grid.Column="0" Grid.Row="1" Content="{Binding HostGame}" />
+        <ContentControl Grid.Column="1" Grid.Row="1" Content="{Binding JoinGame}" />
+        <ContentControl Grid.Column="2" Grid.Row="1" Content="{Binding PlayLocalGame}" />
+    </Grid>
+</UserControl>

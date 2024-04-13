@@ -1,0 +1,29 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:actors="clr-namespace:Leaquid.UserInterface.ViewModels.Actors"
+             xmlns:parts="clr-namespace:Leaquid.UserInterface.ViewModels.Parts"
+             mc:Ignorable="d"
+             Width="{Binding Size.Width}"
+             Height="{Binding Size.Height}"
+             x:Class="Leaquid.UserInterface.Views.Parts.StageView"
+             x:DataType="parts:StageViewModel">
+    <Design.DataContext>
+        <parts:DesignStageViewModel />
+    </Design.DataContext>
+    
+    <ItemsControl ItemsSource="{Binding Actors}">
+        <ItemsControl.ItemsPanel>
+            <ItemsPanelTemplate>
+                <Canvas />
+            </ItemsPanelTemplate>
+        </ItemsControl.ItemsPanel>
+        <ItemsControl.Styles>
+            <Style Selector="ItemsControl > ContentPresenter" x:DataType="actors:IActor">
+                <Setter Property="Canvas.Left" Value="{Binding Bounds.Left}"/>
+                <Setter Property="Canvas.Top" Value="{Binding  Bounds.Top}"/>
+            </Style>
+        </ItemsControl.Styles>
+    </ItemsControl>
+</UserControl>

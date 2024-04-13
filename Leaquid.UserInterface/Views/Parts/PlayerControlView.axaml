@@ -1,0 +1,24 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:Leaquid.UserInterface.ViewModels"
+             xmlns:parts="clr-namespace:Leaquid.UserInterface.ViewModels.Parts"
+             mc:Ignorable="d" 
+             x:Class="Leaquid.UserInterface.Views.Parts.PlayerControlView"
+             x:DataType="parts:PlayerControlViewModel">
+    <UserControl.Styles>
+        <Style Selector="TextBlock">
+            <Setter Property="Background" Value="Transparent"/>
+        </Style>
+    </UserControl.Styles>
+    <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+        <RepeatButton Command="{Binding Up}" HorizontalAlignment="Center">Up</RepeatButton>
+        <StackPanel Orientation="Horizontal">
+            <RepeatButton Command="{Binding Left}">Left</RepeatButton>
+            <RepeatButton Command="{Binding Right}">Right</RepeatButton>
+        </StackPanel>
+        <RepeatButton Command="{Binding Down}" HorizontalAlignment="Center">Down</RepeatButton>
+    </StackPanel>
+
+</UserControl>
