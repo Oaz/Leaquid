@@ -6,8 +6,8 @@
         <Nullable>enable</Nullable>
         <ApplicationTitle>Leaquid</ApplicationTitle>
         <ApplicationId>com.azeau.Leaquid</ApplicationId>
-        <ApplicationVersion>1</ApplicationVersion>
-        <ApplicationDisplayVersion>0.1</ApplicationDisplayVersion>
+        <ApplicationVersion>2</ApplicationVersion>
+        <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
         <AndroidEnableProfiledAot>False</AndroidEnableProfiledAot>
     </PropertyGroup>
 

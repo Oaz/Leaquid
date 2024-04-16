@@ -9,6 +9,7 @@ public interface IAppContext
 {
   string BaseUrl { get; }
   string ProjectUrl { get; }
+  string PrivacyUrl { get; }
   string PlayingUrl(string gameCode);
   string DefaultGameCode { get; }
   string StartupUrlArguments { set; }

@@ -20,6 +20,7 @@ public class FakeContext : IAppContext
 
   public string BaseUrl { get; } = "";
   public string ProjectUrl { get; } = "";
+  public string PrivacyUrl { get; } = "";
   public string PlayingUrl(string gameCode) => $"https://my.site/{gameCode}";
 
   public string DefaultGameCode { get; set; } = "";

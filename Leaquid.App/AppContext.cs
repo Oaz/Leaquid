@@ -15,6 +15,7 @@ public class AppContext : IAppContext
   
   public string BaseUrl => "https://leaquid.mnt.space/";
   public string ProjectUrl => "https://github.com/Oaz/Leaquid";
+  public string PrivacyUrl => "https://leaquid.mnt.space/privacy/";
   public string PlayingUrl(string gameCode) => $"{BaseUrl}?JoinGame={gameCode}";
   public string DefaultGameCode { get; private set; } = string.Empty;
   

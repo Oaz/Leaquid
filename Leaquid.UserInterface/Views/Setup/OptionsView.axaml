@@ -3,29 +3,46 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:setup="clr-namespace:Leaquid.UserInterface.ViewModels.Setup"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="300"
              x:Class="Leaquid.UserInterface.Views.Setup.OptionsView"
              x:DataType="setup:OptionsViewModel">
     <Design.DataContext>
         <setup:OptionsViewModel />
     </Design.DataContext>
-    <Grid
-        ColumnDefinitions="Auto,20,400"
-        RowDefinitions="Auto,Auto,Auto,Auto,Auto"
-        Margin="100 50 50 50"
+    <UserControl.Styles>
+        <Style Selector="TextBlock">
+            <Setter Property="FontSize" Value="10"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+        <Style Selector="Button">
+            <Setter Property="FontSize" Value="10"/>
+        </Style>
+    </UserControl.Styles>
+    <ScrollViewer>
+        <Grid
+            ColumnDefinitions="Auto,20,400"
+            RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto"
+            Margin="100 0 0 50"
         >
-        <TextBlock Grid.Column="0" Grid.Row="0">Game Speed</TextBlock>
-        <ContentControl Grid.Column="2" Grid.Row="0" Content="{Binding Speed}" />
-        <TextBlock Grid.Column="0" Grid.Row="1">Player Width</TextBlock>
-        <ContentControl Grid.Column="2" Grid.Row="1" Content="{Binding PlayerWidthFactor}" />
-        <TextBlock Grid.Column="0" Grid.Row="2">Flood Width</TextBlock>
-        <ContentControl Grid.Column="2" Grid.Row="2" Content="{Binding FloodWidthFactor}" />
-        <TextBlock Grid.Column="0" Grid.Row="3">Phil Factor</TextBlock>
-        <ContentControl Grid.Column="2" Grid.Row="3" Content="{Binding FillFactor}" />
-        <TextBlock Grid.Column="0" Grid.Row="4">Web Site</TextBlock>
-        <Button Grid.Column="2" Grid.Row="4" Classes="hyperlink" Margin="10"
-                Command="{Binding OpenUrl}"
-                CommandParameter="{Binding ProjectUrl}"
-                FontSize="12" Content="{Binding ProjectUrl}" />
-    </Grid>
+            <TextBlock Grid.Column="0" Grid.Row="0">Game Speed</TextBlock>
+            <ContentControl Grid.Column="2" Grid.Row="0" Content="{Binding Speed}" />
+            <TextBlock Grid.Column="0" Grid.Row="1">Player Width</TextBlock>
+            <ContentControl Grid.Column="2" Grid.Row="1" Content="{Binding PlayerWidthFactor}" />
+            <TextBlock Grid.Column="0" Grid.Row="2">Flood Width</TextBlock>
+            <ContentControl Grid.Column="2" Grid.Row="2" Content="{Binding FloodWidthFactor}" />
+            <TextBlock Grid.Column="0" Grid.Row="3">Phil Factor</TextBlock>
+            <ContentControl Grid.Column="2" Grid.Row="3" Content="{Binding FillFactor}" />
+            <TextBlock Grid.Column="0" Grid.Row="4">Web Site</TextBlock>
+            <Button Grid.Column="2" Grid.Row="4" Classes="hyperlink" Margin="10 0"
+                    Command="{Binding OpenUrl}"
+                    CommandParameter="{Binding ProjectUrl}"
+                    Content="{Binding ProjectUrl}" />
+            <TextBlock Grid.Column="0" Grid.Row="5">Privacy Policy</TextBlock>
+            <Button Grid.Column="2" Grid.Row="5" Classes="hyperlink" Margin="10 0"
+                    Command="{Binding OpenUrl}"
+                    CommandParameter="{Binding PrivacyUrl}"
+                    Content="{Binding PrivacyUrl}" />
+        </Grid>
+    </ScrollViewer>
+
 </UserControl>

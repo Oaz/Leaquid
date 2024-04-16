@@ -10,6 +10,7 @@ public class AppContext : IAppContext
 {
   public string BaseUrl { get; } = "";
   public string ProjectUrl { get; } = "";
+  public string PrivacyUrl { get; } = "";
   public string PlayingUrl(string gameCode)
   {
     throw new NotImplementedException();
