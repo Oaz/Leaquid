@@ -1,0 +1,18 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:actors="clr-namespace:Leaquid.UserInterface.ViewModels.Actors"
+             mc:Ignorable="d" d:DesignWidth="200" d:DesignHeight="100"
+             x:Class="Leaquid.UserInterface.Views.Actors.TransparentButtonView"
+             x:DataType="actors:TransparentButtonViewModel">
+    <Design.DataContext>
+        <actors:DesignTransparentButtonViewModel />
+    </Design.DataContext>
+    <Button 
+        Background="Transparent" 
+        Width="{Binding Bounds.Width}"
+        Height="{Binding Bounds.Height}"
+        Command="{Binding Activate}">
+    </Button>
+</UserControl>

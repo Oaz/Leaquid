@@ -44,4 +44,11 @@ public abstract class GameViewModel : ViewModelBase
 
   private ViewModelBase _bottomRight = null!;
 
+  public bool Exit
+  {
+    get => _exit;
+    set => this.RaiseAndSetIfChanged(ref _exit, value);
+  }
+  private bool _exit = false;
+
 }

@@ -37,6 +37,11 @@ public class RemotePlayViewModel : GameViewModel
         else if (status == PlayRemote.Status.Playing)
         {
           var stageViewModel = new LocalStageViewModel(pr.Stage, pr.Player);
+          stageViewModel
+            .WhenPropertyChanged(x => x.Leave)
+            .Subscribe(p => Exit = p.Value)
+            .DisposeWith(Me);
+
           var framing = new FramingViewModel(stageViewModel);
           framing
             .WhenPropertyChanged(x => x.Size)

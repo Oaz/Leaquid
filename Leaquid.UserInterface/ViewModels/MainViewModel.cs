@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Reactive.Disposables;
+using System.Reactive.Linq;
 using DynamicData.Binding;
 using Leaquid.UserInterface.ViewModels.Setup;
 using ReactiveUI;
@@ -12,7 +14,21 @@ public class MainViewModel : ViewModelBase
     _home = new HomeViewModel();
     _home.UserChoices
       .WhenPropertyChanged(x => x.Selection)
-      .Subscribe(p => { Game = p.Value ?? _home; });
+      .Subscribe(p =>
+      {
+        if (p.Value == null)
+        {
+          Game = _home;
+          return;
+        }
+
+        var game = (GameViewModel)p.Value;
+        game
+          .WhenPropertyChanged(x => x.Exit)
+          .Where(x => x.Value)
+          .Subscribe(x => BackToHome());
+        Game = game;
+      }).DisposeWith(Me);
     BackToHome();
   }
 

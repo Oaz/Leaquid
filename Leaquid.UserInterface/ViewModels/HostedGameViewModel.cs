@@ -44,6 +44,11 @@ public class HostedGameViewModel : GameViewModel
       .SubscribeAndForget(async _ =>
       {
         var stage = new StageViewModel(host.Stage);
+        stage
+          .WhenPropertyChanged(x => x.Leave)
+          .Subscribe(p => Exit = p.Value)
+          .DisposeWith(Me);
+        
         var framing = new FramingViewModel(stage);
         framing
           .WhenPropertyChanged(x => x.Size)

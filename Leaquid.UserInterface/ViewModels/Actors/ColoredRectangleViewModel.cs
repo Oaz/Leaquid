@@ -71,7 +71,6 @@ internal class DesignColoredRectangleViewModel : ColoredRectangleViewModel
         new System.Drawing.Size(100,50))
     })
   {
-    Console.WriteLine("=== DesignColoredRectangleViewModel");
     Brush = Brushes.Salmon;
   }
 }

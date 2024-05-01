@@ -9,6 +9,7 @@ using Leaquid.Core;
 using Leaquid.Core.Actors;
 using Leaquid.Core.Bricks;
 using Leaquid.UserInterface.ViewModels.Actors;
+using ReactiveUI;
 using IActor = Leaquid.UserInterface.ViewModels.Actors.IActor;
 
 namespace Leaquid.UserInterface.ViewModels.Parts;
@@ -54,7 +55,7 @@ public class StageViewModel : ViewModelBase, IFramed
     }
   }
 
-  private static void AddDecor(Stage stage, SourceList<IActor> sourceActors)
+  private void AddDecor(Stage stage, SourceList<IActor> sourceActors)
   {
     sourceActors.Add(new DecorViewModel("castle_pxl")
     {
@@ -64,8 +65,23 @@ public class StageViewModel : ViewModelBase, IFramed
         Bottom = stage.Size.Height
       }
     });
+    sourceActors.Add(new TransparentButtonViewModel(
+      new Align(new System.Drawing.Size(25, 25))
+      {
+        HCenter = stage.Size.Width / 2,
+        Bottom = stage.Size.Height
+      },
+      () => Leave = true
+    ));
   }
 
+  public bool Leave
+  {
+    get => _leave;
+    set => this.RaiseAndSetIfChanged(ref _leave, value);
+  }
+  private bool _leave = false;
+  
   public Size Size { get; }
 
   protected readonly List<ColoredRectangleViewModel> Players;

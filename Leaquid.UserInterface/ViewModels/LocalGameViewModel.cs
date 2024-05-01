@@ -1,6 +1,7 @@
 using System;
 using System.Reactive.Disposables;
 using System.Reactive.Linq;
+using DynamicData.Binding;
 using Leaquid.Core;
 using Leaquid.UserInterface.ViewModels.Parts;
 
@@ -11,7 +12,13 @@ public class LocalGameViewModel : GameViewModel
   public LocalGameViewModel(Core.Setup.Options options, int numberOfPlayers = 15)
   {
     var game = new LocalGame(numberOfPlayers, options);
+    
     var stage = new LocalStageViewModel(game.Setup.Stage, game.CurrentPlayer);
+    stage
+      .WhenPropertyChanged(x => x.Leave)
+      .Subscribe(p => Exit = p.Value)
+      .DisposeWith(Me);
+    
     var framing = new FramingViewModel(stage);
     Central = framing;
     BottomLeft = new StageControlViewModel(framing, game.CurrentPlayer);
