@@ -13,13 +13,10 @@ public class RegisterToGameViewModel : ViewModelBase
     Entered = false;
     this
       .WhenPropertyChanged(x => x.GameCode)
-      .Subscribe(p =>
-      {
-        GameCode = ValidGameCode(p.Value!);
-      });
+      .Subscribe(p => GameCode = ValidGameCode(p.Value!));
   }
   
-  private string ValidGameCode(string input) => new (input.ToUpper().Where(char.IsUpper).Take(6).ToArray());
+  private static string ValidGameCode(string input) => new (input.ToUpper().Where(char.IsUpper).Take(6).ToArray());
   
   public string GameCode
   {
