@@ -8,7 +8,8 @@
         <ApplicationId>com.azeau.Leaquid</ApplicationId>
         <ApplicationVersion>2</ApplicationVersion>
         <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
-        <AndroidEnableProfiledAot>False</AndroidEnableProfiledAot>
+<!--        <AndroidEnableProfiledAot>False</AndroidEnableProfiledAot>-->
+        <AndroidSdkDirectory Condition="'$(ANDROID_SDK_ROOT)' != ''">$(ANDROID_SDK_ROOT)</AndroidSdkDirectory>
     </PropertyGroup>
 
     <ItemGroup>

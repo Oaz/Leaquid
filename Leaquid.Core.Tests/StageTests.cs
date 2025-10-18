@@ -20,12 +20,12 @@ public class StageTests
     }));
     Assert.That(sut.Tanks, Is.EquivalentTo(new[]
     {
-      new Tank(60, 680, 479),
+      CreateTank(60, 680, 479),
     }));
     Assert.That(sut.Sinks, Is.EquivalentTo(new[]
     {
-      new Sink(0, 312, 50, 168),
-      new Sink(750, 312, 50, 168),
+      CreateSink(0, 312, 50, 168),
+      CreateSink(750, 312, 50, 168),
     }));
   }
 
@@ -43,12 +43,32 @@ public class StageTests
     }));
     Assert.That(sut.Tanks, Is.EquivalentTo(new[]
     {
-      new Tank(85, 1030, 719),
+      CreateTank(85, 1030, 719),
     }));
     Assert.That(sut.Sinks, Is.EquivalentTo(new[]
     {
-      new Sink(0, 468, 75, 252),
-      new Sink(1125, 468, 75, 252),
+      CreateSink(0, 468, 75, 252),
+      CreateSink(1125, 468, 75, 252),
     }));
   }
+  
+  static Tank CreateTank(int x, int width, int minLevel) =>
+    new(width)
+    {
+      Align =
+      {
+        Left = x,
+        Top = minLevel
+      }
+    };
+  
+  static Sink CreateSink(int x, int y, int width, int height) =>
+    new(width, height)
+    {
+      Align =
+      {
+        Left = x,
+        Top = y
+      }
+    };
 }

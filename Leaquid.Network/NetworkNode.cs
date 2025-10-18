@@ -1,8 +1,7 @@
 using System.Reactive.Disposables;
 using System.Reactive.Subjects;
 using MQTTnet;
-using MQTTnet.Client;
-using MQTTnet.Diagnostics;
+using MQTTnet.Diagnostics.Logger;
 using MQTTnet.Protocol;
 
 namespace Leaquid.Network;
@@ -39,15 +38,15 @@ public class NetworkNode<TMsg> : IDisposable
 
   private static MqttClientOptions Web(string url) =>
     new MqttClientOptionsBuilder()
-      .WithWebSocketServer(o =>
+      .WithWebSocketServer(o => { o.WithUri(url); })
+      .WithTlsOptions(o =>
       {
-        o.Uri = url;
         if (url.StartsWith("wss://"))
         {
-          o.TlsOptions.UseTls = true;
-          o.TlsOptions.AllowUntrustedCertificates = true;
-          o.TlsOptions.IgnoreCertificateChainErrors = true;
-          o.TlsOptions.IgnoreCertificateRevocationErrors = true;
+          o.UseTls();
+          o.WithAllowUntrustedCertificates();
+          o.WithIgnoreCertificateChainErrors();
+          o.WithIgnoreCertificateRevocationErrors();
         }
       })
       .Build();
@@ -58,6 +57,9 @@ public class NetworkNode<TMsg> : IDisposable
     var options = uri.Scheme == "tcp"
       ? Tcp(uri.Host, uri.Port)
       : Web(mqttBroker);
+    options.CleanSession = true;
+    options.Timeout = TimeSpan.FromSeconds(10);
+    options.KeepAlivePeriod = TimeSpan.FromSeconds(60);
     await Connect(options);
   }
 
@@ -68,11 +70,11 @@ public class NetworkNode<TMsg> : IDisposable
       var logger = new MqttNetEventLogger();
       logger.LogMessagePublished += (sender, args) =>
       {
-        if(args.LogMessage.Level is MqttNetLogLevel.Error or MqttNetLogLevel.Warning)
+        if (args.LogMessage.Level is MqttNetLogLevel.Error or MqttNetLogLevel.Warning)
           Console.WriteLine(args.LogMessage.Message);
       };
-      var factory = new MqttFactory();
-      var client = factory.CreateMqttClient(logger);
+      var factory = new MqttClientFactory(logger);
+      var client = factory.CreateMqttClient();
       _dispose.Add(client);
       Send = async (topic, message) =>
       {
@@ -81,7 +83,6 @@ public class NetworkNode<TMsg> : IDisposable
           var payload = _ec.Payload(message);
           var mqtt = new MqttApplicationMessageBuilder()
             .WithTopic(topic)
-            // .WithPayload(message.Payload())
             .WithPayload(payload)
             .WithQualityOfServiceLevel(MqttQualityOfServiceLevel.AtLeastOnce)
             .Build();
@@ -128,10 +129,12 @@ public class NetworkNode<TMsg> : IDisposable
         _status.OnNext(new ConnectionStatus(true,
           $"disconnected from {options}. Reason: {e.Reason} {e.Exception?.Message}"));
       };
+      DisplayOptions(options);
       var connectResponse = await client.ConnectAsync(
         options,
         CancellationToken.None
       );
+      WriteLine($"Connect attempt completed. Result: {connectResponse.ResultCode} {connectResponse.ReasonString}");
     }
     catch (Exception e)
     {
@@ -139,7 +142,40 @@ public class NetworkNode<TMsg> : IDisposable
     }
   }
 
-  private void WriteLine(string s) => Console.WriteLine(s);
+  private void DisplayOptions(MqttClientOptions mqttClientOptions)
+  {
+    WriteLine($"MQTT Client Options:");
+    WriteLine($"  Client ID: {mqttClientOptions.ClientId}");
+    WriteLine($"  Keep Alive Interval: {mqttClientOptions.KeepAlivePeriod}");
+    WriteLine($"  Clean Session: {mqttClientOptions.CleanSession}");
+    WriteLine($"  Protocol Version: {mqttClientOptions.ProtocolVersion}");
 
+    if (mqttClientOptions.ChannelOptions != null)
+    {
+      WriteLine($"  Channel Options Type: {mqttClientOptions.ChannelOptions.GetType().Name}");
+      if (mqttClientOptions.ChannelOptions is MqttClientWebSocketOptions wsOptions)
+      {
+        WriteLine($"    URI: {wsOptions.Uri}");
+        WriteLine($"    TLS Enabled: {wsOptions.TlsOptions?.UseTls ?? false}");
+      }
+    }
+
+    if (mqttClientOptions.Credentials != null)
+    {
+      WriteLine($"  Has Credentials: Yes");
+      WriteLine($"  Credentials: {mqttClientOptions.Credentials}");
+    }
+    else
+    {
+      WriteLine($"  Has Credentials: No");
+    }
+  }
+
+  private void WriteLine(string s)
+  {
+    #if DEBUG
+    Console.WriteLine(s);
+    #endif
+  } 
   public void Dispose() => _dispose.Dispose();
 }

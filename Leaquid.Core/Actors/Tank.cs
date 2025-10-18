@@ -5,11 +5,6 @@ namespace Leaquid.Core.Actors;
 
 public class Tank : Actor, IEquatable<Tank>
 {
-  public Tank(int x, int width, int minLevel) : this(width)
-  {
-    Align.Left = x;
-    Align.Top = minLevel;
-  }
   public Tank(int width) : base(new Size(width, 1))
   {
     _filled = 0;

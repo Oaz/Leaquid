@@ -4,11 +4,6 @@ namespace Leaquid.Core.Actors;
 
 public class Sink : Actor, IEquatable<Sink>
 {
-  public Sink(int x, int y, int width, int height) : this(width, height)
-  {
-    Align.Left = x;
-    Align.Top = y;
-  }
   public Sink(int width, int height) : base(new Size(width, height))
   {
   }
