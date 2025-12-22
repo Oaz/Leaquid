@@ -3,6 +3,8 @@
         <TargetFramework>net10.0-browser</TargetFramework>
         <OutputType>Exe</OutputType>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <PublishTrimmed>false</PublishTrimmed>
+        <PublishAot>false</PublishAot>
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
