@@ -7,7 +7,7 @@ using Leaquid.Network;
 Console.WriteLine("Game code?");
 var gameCode = Console.ReadLine()!.ToUpper();
 
-var mqttBrokerUrl = "wss://mqtt.mnt.space:3426";
+var mqttBrokerUrl = "wss://mqtt.mnt.space:4726";
 var numberOfRemotePlayers = 15;
 Console.WriteLine($"Simulating {numberOfRemotePlayers} remote players.");
 var players = new Dictionary<string, IGameBroker.ISeat>();

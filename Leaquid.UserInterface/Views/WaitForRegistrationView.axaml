@@ -23,20 +23,22 @@
             <Setter Property="HorizontalAlignment" Value="Center" />
         </Style>
     </UserControl.Styles>
-    <Grid ColumnDefinitions="Auto,*" RowDefinitions="*,Auto">
-        <StackPanel Grid.Column="0" Grid.Row="0" Grid.RowSpan="2"
-                    HorizontalAlignment="Center" 
-                    VerticalAlignment="Center" Spacing="20">
-            <WrapPanel>
-                <TextBlock>Game ID:</TextBlock>
-                <TextBlock Text="{Binding GameId}" />
-            </WrapPanel>
-            <WrapPanel>
-                <TextBlock>Players:</TextBlock>
-                <TextBlock Text="{Binding PlayerCount}" />
-            </WrapPanel>
-            <Button HorizontalAlignment="Center" Command="{Binding Start}">START</Button>
-        </StackPanel>
+    <Grid ColumnDefinitions="1*,1*" RowDefinitions="*,Auto">
+        <Viewbox Grid.Column="0" Grid.Row="0" Grid.RowSpan="2">
+            <StackPanel 
+                HorizontalAlignment="Center" 
+                VerticalAlignment="Center" Spacing="20">
+                <WrapPanel>
+                    <TextBlock>Game ID:</TextBlock>
+                    <TextBlock Text="{Binding GameId}" />
+                </WrapPanel>
+                <WrapPanel>
+                    <TextBlock>Players:</TextBlock>
+                    <TextBlock Text="{Binding PlayerCount}" />
+                </WrapPanel>
+                <Button HorizontalAlignment="Center" Command="{Binding Start}">START</Button>
+            </StackPanel>
+        </Viewbox>
         <Viewbox Grid.Column="1" Grid.Row="0">
             <Image Source="{Binding QrCode}" />
         </Viewbox>

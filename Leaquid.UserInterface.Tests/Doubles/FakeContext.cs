@@ -24,7 +24,6 @@ public class FakeContext : IAppContext
   public string PlayingUrl(string gameCode) => $"https://my.site/{gameCode}";
 
   public string DefaultGameCode { get; set; } = "";
-  public string StartupUrlArguments { get; set; } = null!;
   public Action<string> OpenUrl { get; set; } = null!;
   public Optional<Action> ToggleFullScreen { get; set; }
   public Func<TimeSpan, IObservable<long>> Cadence { get; set; }

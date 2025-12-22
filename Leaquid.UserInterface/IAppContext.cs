@@ -12,7 +12,6 @@ public interface IAppContext
   string PrivacyUrl { get; }
   string PlayingUrl(string gameCode);
   string DefaultGameCode { get; }
-  string StartupUrlArguments { set; }
   Action<string> OpenUrl { get; set; }
   Optional<Action> ToggleFullScreen { get; set; }
   Func<TimeSpan, IObservable<long>> Cadence { get; set; }

@@ -29,7 +29,6 @@ internal partial class Program
         return notifier;
       })
       .UseMqttWithWs()
-      .InterpretStartupUrlArguments(args[0])
       .DefineFullScreenToggle(Interop.ToggleFullScreen)
       .SetUrlOpener(Interop.OpenUrl)
       .UseReactiveUI()

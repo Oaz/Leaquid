@@ -3,17 +3,7 @@
     "perHostConfig": [
       {
         "name": "browser",
-        "html-path": "index.html",
-        "Host": "browser"
-      }
-    ]
-  },
-  "runtimeOptions": {
-    "tfm": "net8.0",
-    "frameworks": [
-      {
-        "name": "Microsoft.NETCore.App",
-        "version": "8.0.0"
+        "host": "browser"
       }
     ]
   }

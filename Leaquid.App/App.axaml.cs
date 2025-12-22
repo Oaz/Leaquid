@@ -54,8 +54,5 @@ public static class ConfigureApp
   public static AppBuilder SetUrlOpener(this AppBuilder builder, Action<string> openUrl) =>
     builder.AfterSetup(b => Context.OpenUrl = openUrl);
 
-  public static AppBuilder InterpretStartupUrlArguments(this AppBuilder builder, string startupUrlArguments) =>
-    builder.AfterSetup(b => Context.StartupUrlArguments = startupUrlArguments);
-
   private static IAppContext Context => IAppContext._;
 }

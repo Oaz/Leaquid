@@ -13,11 +13,15 @@
         HorizontalAlignment="Stretch"
         VerticalAlignment="Stretch"
         Command="{Binding Execute}">
-        <TextBlock
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            Background="Transparent"
-            Text="{Binding Text}">
-        </TextBlock>
+        <Viewbox
+            Margin="20"
+            Stretch="Uniform">
+            <TextBlock
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Background="Transparent"
+                Text="{Binding Text}">
+            </TextBlock>
+        </Viewbox>
     </Button>
 </UserControl>

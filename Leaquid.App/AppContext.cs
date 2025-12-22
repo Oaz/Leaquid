@@ -1,3 +1,4 @@
+using System.Text.RegularExpressions;
 using DynamicData.Kernel;
 using Leaquid.Core;
 using Leaquid.Network;
@@ -11,6 +12,8 @@ public class AppContext : IAppContext
   public AppContext()
   {
     Broker = () => new GameBroker(_mqttBroker);
+    if (ParseUrlArguments().TryGetValue("JoinGame", out var defaultGameCode))
+      DefaultGameCode = defaultGameCode;
   }
   
   public string BaseUrl => "https://leaquid.mnt.space/";
@@ -29,24 +32,26 @@ public class AppContext : IAppContext
   private string _mqttBroker = string.Empty;
   public void UseTcp() => _mqttBroker = TcpUrl;
   public void UseWs() => _mqttBroker = WebsocketUrl;
-  private const string TcpUrl = "tcp://mqtt.mnt.space:3423";
-  private const string WebsocketUrl = "wss://mqtt.mnt.space:3426";
+  private const string TcpUrl = "tcp://mqtt.mnt.space:4725";
+  private const string WebsocketUrl = "wss://mqtt.mnt.space:4726";
   
-  public string StartupUrlArguments
+  private static Dictionary<string, string> ParseUrlArguments()
   {
-    set
+    var result = new Dictionary<string, string>();
+    var args = Environment.GetCommandLineArgs();
+    if (args.Length < 2) return result;
+    var index = args[1].IndexOf('?');
+    if (index < 0) return result;
+    var query = args[1].Substring(index + 1);
+    var matches = Regex.Matches(query, @"([^=&]+)(?:=([^&]+))?");
+    foreach (Match match in matches)
     {
-      if (ParseSearch(value).TryGetValue("JoinGame", out var defaultGameCode))
-        DefaultGameCode = defaultGameCode;
+      var key = match.Groups[1].Value;
+      var value = match.Groups[2].Success ? match.Groups[2].Value : string.Empty;
+      result[key] = value;
     }
-  }
 
-  private static Dictionary<string, string> ParseSearch(string search) =>
-    search.Length == 0
-      ? new Dictionary<string, string>()
-      : search.Substring(1)
-        .Split('&')
-        .Select(p => p.Split('='))
-        .ToDictionary(t => t[0], t => t.Length > 1 ? t[1] : "");
+    return result;
+  }
 
 }
