@@ -41,13 +41,6 @@ public class NetworkNode<TMsg> : IDisposable
       .WithWebSocketServer(o =>
       {
         o.WithUri(url);
-        // if (url.StartsWith("wss://"))
-        // {
-        //   o.TlsOptions.UseTls = true;
-        //   o.TlsOptions.AllowUntrustedCertificates = true;
-        //   o.TlsOptions.IgnoreCertificateChainErrors = true;
-        //   o.TlsOptions.IgnoreCertificateRevocationErrors = true;
-        // }
       })
       .Build();
 
@@ -80,7 +73,6 @@ public class NetworkNode<TMsg> : IDisposable
           var payload = _ec.Payload(message);
           var mqtt = new MqttApplicationMessageBuilder()
             .WithTopic(topic)
-            // .WithPayload(message.Payload())
             .WithPayload(payload)
             .WithQualityOfServiceLevel(MqttQualityOfServiceLevel.AtLeastOnce)
             .Build();
