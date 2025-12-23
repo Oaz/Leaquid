@@ -12,7 +12,7 @@ public static class ObservableExtensions
   public static IDisposable SubscribeAndWait<T>(this IObservable<T> @this, Func<T,Task> action) =>
     @this
       .Select(action)
-      .Subscribe(t => t.Wait());
+      .Subscribe(async t => await t);
   
   public static IDisposable SubscribeAndForget<T>(this IObservable<T> @this, Func<T,Task> action) =>
     @this

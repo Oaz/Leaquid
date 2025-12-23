@@ -41,6 +41,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Leaquid.Framebuffer", "Leaq
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Leaquid.VNC", "Leaquid.VNC\Leaquid.VNC.csproj", "{02003BA8-145C-46AD-AAD2-7DC1EBCC2848}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Leaquid.WebRTC", "Leaquid.WebRTC\Leaquid.WebRTC.csproj", "{260D266E-1941-4E42-9CE4-E24FC6E77759}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -103,6 +105,10 @@ Global
 		{02003BA8-145C-46AD-AAD2-7DC1EBCC2848}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{02003BA8-145C-46AD-AAD2-7DC1EBCC2848}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{02003BA8-145C-46AD-AAD2-7DC1EBCC2848}.Release|Any CPU.Build.0 = Release|Any CPU
+		{260D266E-1941-4E42-9CE4-E24FC6E77759}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{260D266E-1941-4E42-9CE4-E24FC6E77759}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{260D266E-1941-4E42-9CE4-E24FC6E77759}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{260D266E-1941-4E42-9CE4-E24FC6E77759}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
